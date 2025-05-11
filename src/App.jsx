@@ -1,13 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "./components/Header";
-import { HeroSlider } from "./components/hero-slider";
+import { Footer } from "./components/footer";
+
 
 function App() {
   return (
     <>
       <Header />
-      <HeroSlider />
       <Outlet />
+      <Footer/>
     </>
   );
 }

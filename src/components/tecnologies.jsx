@@ -1,6 +1,12 @@
+import javascriptIcon from "../assets/js.png";
+import pythonIcon from "../assets/python.png";
+import htmlIcon from "../assets/html.png";
+import cssIcon from "../assets/css-3.png";
+
+
 export function TechnologiesSection() {
   const section = {
-    backgroundColor: "#FFFF",
+    backgroundColor: "#B8D1EA",
     padding: "80px 40px",
     textAlign: "center",
   };
@@ -9,6 +15,7 @@ export function TechnologiesSection() {
     fontSize: "20px",
     color: "#111827",
     marginBottom: "8px",
+    fontFamily: "'Work Sans', sans-serif",
   };
 
   const title = {
@@ -16,6 +23,7 @@ export function TechnologiesSection() {
     fontWeight: "bold",
     color: "#111827",
     marginBottom: "40px",
+    fontFamily: "'Work Sans', sans-serif",
   };
 
   const iconList = {
@@ -34,28 +42,45 @@ export function TechnologiesSection() {
   const icon = {
     width: "80px",
     height: "80px",
-    border: "2px solid #000",
-    borderRadius: "50%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "8px",
+    overflow: "hidden",
   };
+
+const iconImage = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+};
+
 
   const iconText = {
     fontWeight: "600",
     color: "#111827",
+    fontFamily: "'Work Sans', sans-serif",
   };
+
+  const technologies = [
+    { name: "JavaScript", icon: javascriptIcon },
+    { name: "Python", icon: pythonIcon },
+    { name: "HTML", icon: htmlIcon },
+    { name: "CSS", icon: cssIcon },
+  
+  ];
 
   return (
     <section style={section}>
       <div style={subtitle}>Nossas Tecnologias</div>
       <h2 style={title}>Linguagens Utilizadas</h2>
       <div style={iconList}>
-        {[...Array(6)].map((_, index) => (
+        {technologies.map((tech, index) => (
           <div key={index} style={iconItem}>
-            <div style={icon}></div>
-            <span style={iconText}>Cupcake</span>
+            <div style={icon}>
+              <img src={tech.icon} alt={tech.name} style={iconImage} />
+            </div>
+            <span style={iconText}>{tech.name}</span>
           </div>
         ))}
       </div>

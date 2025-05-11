@@ -6,7 +6,7 @@ export function HeroSection() {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "80px",
-    backgroundColor: "#EAF2FA",
+    backgroundColor: "#B8D1EA",
     minHeight: "100vh",
     boxSizing: "border-box",
     fontFamily: "'Work Sans', sans-serif",

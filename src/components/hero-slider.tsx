@@ -80,14 +80,16 @@ export function HeroSlider() {
             {slide.description}
           </p>
           <Button
-            style={{
-              backgroundColor: "#0A2A82",
-              color: "white",
-              padding: "1.5rem 2rem",
-              fontSize: "1.125rem",
-              borderRadius: "8px",
-              border: "none",
-            }}
+              style={{
+    backgroundColor: "#0A2A82",
+    color: "#fff",
+    padding: "14px 32px",
+    borderRadius: "9999px",
+    fontSize: "16px",
+    fontWeight: "600",
+    textDecoration: "none",
+    fontFamily: "'Work Sans', sans-serif",
+  }}
           >
             Alertar
           </Button>
