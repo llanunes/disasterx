@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Home from "./pages/home/index.jsx";
-import Servicos from "./pages/contact/index.jsx";
+import AlertDashboard from "./pages/dashboard/index.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/contact", element: <Servicos /> },
+      { path: "/dashboard", element: <AlertDashboard /> },
     ],
   },
 ]);

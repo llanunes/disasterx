@@ -21,7 +21,7 @@ export function TestimonialsSection() {
     color: "#111827",
     marginBottom: "40px",
     fontFamily: "'Work Sans', sans-serif",
-    fontFamily: "'Work Sans', sans-serif",
+
   };
 
   const testimonialsList = {
