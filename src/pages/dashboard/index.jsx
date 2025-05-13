@@ -1,56 +1,70 @@
 import { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import AlertCard from "../../components/AlertCard";
+import AlertMap from "../../components/AlertMap";
+import AlertTable from "../../components/AlertTable";
+import AlertModal from "../../components/AlertModal";
 import "leaflet/dist/leaflet.css";
+import { AlertSeverityeEnum } from "../../enums/AlertSeverityEnum";
+import { AlertCircle, AlertTriangle } from "lucide-react";
 
 export default function AlertDashboard() {
-  const [alerts, setAlerts] = useState([
-    {
-      event: "Enchente",
-      start: 1682467800,
-      zone: "Zona Norte",
-      neighborhood: "Santana",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      severity: "Alto",
-      coordinates: [-23.5338, -46.6200], 
-    },
-    {
-      event: "Incêndio",
-      start: 1682467800,
-      zone: "Zona Sul",
-      neighborhood: "Campo Limpo",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      severity: "Médio",
-      coordinates: [-23.6840, -46.7390], 
-    },
-    {
-      event: "Deslizamento",
-      start: 1682467800,
-      zone: "Zona Oeste",
-      neighborhood: "Vila Progredior",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      severity: "Baixo",
-      coordinates: [-23.5660, -46.7435], 
-    },
-    {
-      event: "Enchente",
-      start: 1682467800,
-      zone: "Zona Leste",
-      neighborhood: "Itaquera",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      severity: "Alto",
-      coordinates: [-23.5336, -46.4666], 
-    },
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [categoria, setCategoria] = useState("");
+  const [severidade, setSeveridade] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [selectedCoordinates, setSelectedCoordinates] = useState([
+    -23.5505, -46.6333,
   ]);
+  const closeModal = () => setIsModalOpen(false);
+
+  const bairrosSP = {
+    Santana: [-23.5338, -46.62],
+    "Campo Limpo": [-23.684, -46.739],
+    "Vila Progredior": [-23.566, -46.7435],
+    Itaquera: [-23.5336, -46.4666],
+    Mooca: [-23.5525, -46.6102],
+    Tatuapé: [-23.5475, -46.5724],
+    Lapa: [-23.5379, -46.7327],
+    Pinheiros: [-23.5587, -46.6945],
+    Butantã: [-23.5889, -46.7293],
+    Sé: [-23.5505, -46.6333],
+    "Vila Mariana": [-23.5896, -46.641],
+    Ipiranga: [-23.5934, -46.6057],
+    Jabaquara: [-23.6822, -46.6442],
+    Tremembé: [-23.481, -46.6486],
+    "Freguesia do Ó": [-23.5228, -46.7119],
+  };
+
+  const handleSubmit = () => {
+    const newAlert = {
+      event: categoria,
+      start: Date.now() / 1000,
+      zone: bairro,
+      neighborhood: bairro,
+      description: descricao,
+      severity: severidade,
+      coordinates: bairrosSP[bairro] || [-23.5505, -46.6333],
+    };
+
+    setAlerts((prevAlerts) => [...prevAlerts, newAlert]);
+
+    setSelectedCoordinates(newAlert.coordinates);
+
+    setIsModalOpen(false);
+
+    setCategoria("");
+    setSeveridade("");
+    setBairro("");
+    setDescricao("");
+  };
 
   const styles = {
     container: {
       backgroundColor: "#ffffff",
       padding: "40px",
       fontFamily: "Arial, sans-serif",
+      position: "relative",
     },
     header: {
       display: "flex",
@@ -58,154 +72,113 @@ export default function AlertDashboard() {
       marginBottom: "40px",
       flexWrap: "wrap",
     },
-    card: {
-      backgroundColor: "#f9fafb",
-      borderRadius: "12px",
-      padding: "20px",
-      flex: "1",
-      minWidth: "220px",
-      boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+    alertButton: {
       display: "flex",
-      flexDirection: "column", 
-      justifyContent: "space-between", 
-      textAlign: "center",
-    },
-    cardTitleContainer: {
-      display: "flex",
-      justifyContent: "space-between", 
-      alignItems: "center", 
-    },
-    cardTitle: {
-      fontSize: "14px",
-      fontWeight: "bold",
-      color: "#374151",
-      textAlign: "left", 
-    },
-    cardSubtitle: {
-      fontSize: "12px",
-      color: "#6b7280",
-      textAlign: "left", 
-      marginTop: "4px", 
-    },
-    cardNumber: {
-      fontSize: "18px",
-      color: "#1f2937",
-      border: "1px solid #000",
-      borderRadius: "10px",
-      padding: "4px 8px",
-      textAlign: "right", 
-    },
-
-    tableWrapper: {
-      backgroundColor: "#fff",
-      borderRadius: "12px",
-      boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-      overflowX: "auto",
-      marginBottom: "40px",
-    },
-    table: {
-      width: "100%",
-      borderCollapse: "collapse",
-    },
-    thtd: {
-      padding: "12px 16px",
-      borderBottom: "1px solid #e5e7eb",
-      fontSize: "14px",
-      textAlign: "left",
-    },
-    mapContainer: {
-      height: "500px",
-      width: "100%",
-      borderRadius: "12px",
-      overflow: "hidden",
-      boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "10px",
+      marginBottom: "20px",
+      padding: "0px 20px 0px 20px",
+      backgroundColor: "#0A2A82",
+      color: "#fff",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+      fontSize: "16px",
     },
   };
+
+  const [alerts, setAlerts] = useState([
+    {
+      event: "Enchente",
+      start: 1682467800,
+      neighborhood: "Santana",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      severity: AlertSeverityeEnum.ALTO,
+      coordinates: [-23.5338, -46.62],
+    },
+    {
+      event: "Incêndio",
+      start: 1682467800,
+      neighborhood: "Campo Limpo",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      severity: AlertSeverityeEnum.MEDIO,
+      coordinates: [-23.684, -46.739],
+    },
+    {
+      event: "Deslizamento",
+      start: 1682467800,
+      neighborhood: "Vila Progredior",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      severity: AlertSeverityeEnum.BAIXO,
+      coordinates: [-23.566, -46.7435],
+    },
+    {
+      event: "Enchente",
+      start: 1682467800,
+      neighborhood: "Itaquera",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      severity: AlertSeverityeEnum.ALTO,
+      coordinates: [-23.5336, -46.4666],
+    },
+  ]);
 
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <div style={styles.card}>
-          <div style={styles.cardTitleContainer}>
-            <div style={styles.cardTitle}>Alertas</div>
-            <div style={styles.cardNumber}>349</div>
-          </div>
-          <div style={styles.cardSubtitle}>Alertas dos últimos 48 dias</div>
-        </div>
-        <div style={styles.card}>
-          <div style={styles.cardTitleContainer}>
-            <div style={styles.cardTitle}>Alertas</div>
-            <div style={styles.cardNumber}>349</div>
-          </div>
-          <div style={styles.cardSubtitle}>Alertas dos últimos 48 dias</div>
-        </div>
-        <div style={styles.card}>
-          <div style={styles.cardTitleContainer}>
-            <div style={styles.cardTitle}>Alertas</div>
-            <div style={styles.cardNumber}>349</div>
-          </div>
-          <div style={styles.cardSubtitle}>Alertas dos últimos 48 dias</div>
-        </div>
-        <div style={styles.card}>
-          <div style={styles.cardTitleContainer}>
-            <div style={styles.cardTitle}>Alertas</div>
-            <div style={styles.cardNumber}>349</div>
-          </div>
-          <div style={styles.cardSubtitle}>Alertas dos últimos 48 dias</div>
-        </div>
-        
+        <AlertCard
+          title="Alertas"
+          subtitle="Alertas dos últimos 48 dias"
+          number={alerts.length}
+        />
+        <AlertCard
+          title="Alertas"
+          subtitle="Alertas dos últimos 48 dias"
+          number={349}
+        />
+
+        <AlertCard
+          title="Alertas"
+          subtitle="Alertas dos últimos 48 dias"
+          number={349}
+        />
+
+        <AlertCard
+          title="Alertas"
+          subtitle="Alertas dos últimos 48 dias"
+          number={349}
+        />
       </div>
 
-      <div style={styles.tableWrapper}>
-        <table style={styles.table}>
-          <thead>
-            <tr>
-              <th style={styles.thtd}>Categoria</th>
-              <th style={styles.thtd}>Localização</th>
-              <th style={styles.thtd}>Data e Hora</th>
-              <th style={styles.thtd}>Mensagem</th>
-              <th style={styles.thtd}>Nível de Severidade</th>
-            </tr>
-          </thead>
-          <tbody>
-            {alerts.map((alert, index) => (
-              <tr key={index}>
-                <td style={styles.thtd}>{alert.event}</td>
-                <td style={styles.thtd}>
-                  {alert.zone}, {alert.neighborhood}
-                </td>
-                <td style={styles.thtd}>
-                  {new Date(alert.start * 1000).toLocaleString()}
-                </td>
-                <td style={styles.thtd}>
-                  {alert.description?.slice(0, 50)}...
-                </td>
-                <td style={styles.thtd}>{alert.severity}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <button style={styles.alertButton} onClick={() => setIsModalOpen(true)}>
+       <AlertCircle/>
+        <p>
+          Alertar
+        </p>
+      </button>
 
-      <div style={styles.mapContainer}>
-        <MapContainer
-          center={[-23.5505, -46.6333]}
-          zoom={10}
-          scrollWheelZoom={true}
-          style={{ height: "100%", width: "100%" }}
-        >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          {alerts.map((alert, index) => (
-            <Marker key={index} position={alert.coordinates}>
-              <Popup>
-                <strong>{alert.event}</strong>
-                <br />
-                {alert.description?.slice(0, 100)}...
-              </Popup>
-            </Marker>
-          ))}
-        </MapContainer>
-      </div>
+      {isModalOpen && (
+        <AlertModal
+          bairro={bairro}
+          closeModal={closeModal}
+          categoria={categoria}
+          descricao={descricao}
+          severidade={severidade}
+          bairrosSP={bairrosSP}
+          handleSubmit={handleSubmit}
+          setBairro={setBairro}
+          setCategoria={setCategoria}
+          setDescricao={setDescricao}
+          setSeveridade={setSeveridade}
+        />
+      )}
+      <AlertTable alerts={alerts} />
+
+      <AlertMap alerts={alerts} selectedCoordinates={selectedCoordinates} />
     </div>
   );
 }
