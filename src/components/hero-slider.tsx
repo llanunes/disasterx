@@ -28,6 +28,17 @@ const slides = [
   },
 ];
 
+ const button = {
+    backgroundColor: "#0A2A82",
+    color: "#fff",
+    padding: "14px 32px",
+    borderRadius: "9999px",
+    fontSize: "16px",
+    fontWeight: "600",
+    textDecoration: "none",
+    fontFamily: "'Work Sans', sans-serif",
+  };
+
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -79,20 +90,12 @@ export function HeroSlider() {
           >
             {slide.description}
           </p>
-          <Button
-              style={{
-    backgroundColor: "#0A2A82",
-    color: "#fff",
-    padding: "14px 32px",
-    borderRadius: "9999px",
-    fontSize: "16px",
-    fontWeight: "600",
-    textDecoration: "none",
-    fontFamily: "'Work Sans', sans-serif",
-  }}
-          >
-            Alertar
-          </Button>
+            <button
+          onClick={() => (window.location.href = "/dashboard")}
+          style={button}
+        >
+          Alertar
+        </button>
         </div>
       ))}
 

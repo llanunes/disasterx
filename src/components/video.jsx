@@ -47,7 +47,7 @@ export function VideoPitchSection() {
       <div style={videoWrapper}>
         <iframe
           style={iframe}
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+          src="https://www.youtube.com/embed/0zrh_CxtQtU?si=3La5gkUySj5iM1yB" 
           title="Vídeo Pitch"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

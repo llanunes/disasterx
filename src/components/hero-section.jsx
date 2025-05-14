@@ -66,9 +66,12 @@ export function HeroSection() {
           resposta. A missão é clara: informar com agilidade, salvar vidas e
           conectar comunidades em risco com soluções e apoio imediato.
         </p>
-        <Link to="/alertar" style={button}>
+        <button
+          onClick={() => (window.location.href = "/dashboard")}
+          style={button}
+        >
           Alertar
-        </Link>
+        </button>
       </div>
       <div style={image}>
         <img

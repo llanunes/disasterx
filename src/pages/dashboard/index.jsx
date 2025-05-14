@@ -1,5 +1,6 @@
 import { useState } from "react";
-import AlertCard from "../../components/AlertCard";
+import AlertCardNumber from "../../components/AlertCardNumber";
+import AlertCardCategory from "../../components/AlertCardCategory";
 import AlertMap from "../../components/AlertMap";
 import AlertTable from "../../components/AlertTable";
 import AlertModal from "../../components/AlertModal";
@@ -130,36 +131,37 @@ export default function AlertDashboard() {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <AlertCard
+        <AlertCardNumber
           title="Alertas"
-          subtitle="Alertas dos últimos 48 dias"
+          subtitle="Alertas dos últimos 28 dias"
           number={alerts.length}
         />
-        <AlertCard
-          title="Alertas"
-          subtitle="Alertas dos últimos 48 dias"
-          number={349}
+        <AlertCardNumber
+          title="Últimos Alertas"
+          subtitle="Alertas das últimas 24 horas"
+          number={1}
         />
 
-        <AlertCard
-          title="Alertas"
-          subtitle="Alertas dos últimos 48 dias"
-          number={349}
+        <AlertCardCategory
+        city="Lapa"
+          subtitle="Último registro"
+          category="Enchente"
         />
 
-        <AlertCard
-          title="Alertas"
-          subtitle="Alertas dos últimos 48 dias"
-          number={349}
+       <AlertCardCategory
+          city="Local Crítico"
+          subtitle="Local com mais registros"
+          category="Lapa"
         />
       </div>
 
-      <button style={styles.alertButton} onClick={() => setIsModalOpen(true)}>
-       <AlertCircle/>
-        <p>
-          Alertar
-        </p>
-      </button>
+     <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px" }}>
+  <button style={styles.alertButton} onClick={() => setIsModalOpen(true)}>
+    <AlertCircle />
+    <p>Alertar</p>
+  </button>
+</div>
+
 
       {isModalOpen && (
         <AlertModal
