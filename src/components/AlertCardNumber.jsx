@@ -40,7 +40,7 @@ const styles = {
   },
 };
 
-const AlertCard = ({ title, subtitle, number }) => (
+const AlertCardNumber = ({ title, subtitle, number }) => (
   <div style={styles.card}>
     <div style={styles.cardTitleContainer}>
       <div style={styles.cardTitle}>{title}</div>
@@ -50,4 +50,4 @@ const AlertCard = ({ title, subtitle, number }) => (
   </div>
 );
 
-export default AlertCard;
+export default AlertCardNumber;
