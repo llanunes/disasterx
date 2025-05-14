@@ -56,13 +56,13 @@ export function Header() {
           </Link>
         </li>
         <li>
-          <Link style={getLinkStyle("/contact")} to="/contact">
-            Contato
+          <Link style={getLinkStyle("/dashboard")} to="/dashboard">
+            Alertar
           </Link>
         </li>
         <li>
-          <Link style={getLinkStyle("/dashboard")} to="/dashboard">
-            Alertar
+          <Link style={getLinkStyle("/contact")} to="/contact">
+            Contato
           </Link>
         </li>
       </ul>
