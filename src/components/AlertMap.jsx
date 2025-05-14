@@ -6,7 +6,7 @@ const AlertMap = ({ alerts, selectedCoordinates }) => {
   const getIcon = (category) => {
     const iconUrlMap = {
       Enchente: 'src/assets/enchente.png',
-      Incêndio: 'src/assets/queimada.png',
+      Incêndio: 'src/assets/fogo.png',
       Deslizamento: 'src/assets/deslizamento.png',
     };
     return L.icon({
