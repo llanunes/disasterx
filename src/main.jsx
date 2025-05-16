@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import Home from "./pages/home/index.jsx";
 import AlertDashboard from "./pages/dashboard/index.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ContactDashboard from "./components/contact-form.js";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/dashboard", element: <AlertDashboard /> },
+      { path: "/contact", element: <ContactDashboard /> },
     ],
   },
 ]);

@@ -14,15 +14,15 @@ const slides = [
       "https://comeceodiafeliz.com.br/assets/uploads/mensagem/ajudar-e-ser-ajudado-1509.jpg",
   },
   {
-    title: "Apoie quem precisa",
-    description: "Doe roupas, alimentos e outros itens para quem mais precisa",
+    title: "Tempo Real. Impacto Real.",
+    description: "Monitore desastres naturais conforme eles acontecem e ajude a espalhar o alerta — porque agir rápido pode salvar vidas.",
     image:
-      "https://img.freepik.com/fotos-premium/maos-de-homem-e-mulher-alcancando-um-ao-outro-suporte-solidariedade-compaixao-e-caridade-resgate-dando-uma-mao-amiga-maos-de-homem-e-mulher-no-fundo-do-ceu-azul-dando-uma-mao-amiga_293990-1300.jpg",
+      "https://corts.com.br/wp-content/uploads/2022/08/Lesao-nas-maos-uso-do-celular.png",
   },
   {
-    title: "Transforme Vidas",
+    title: "Sua Janela para o Alerta Global.",
     description:
-      "Ajude a transformar vidas com sua doação e faça a diferença na comunidade",
+     "Uma interface intuitiva para enxergar o que está por vir — e agir antes que seja tarde.",
     image:
       "https://floripacentro.com.br/wp-content/uploads/2020/03/bonecos-1.jpg",
   },

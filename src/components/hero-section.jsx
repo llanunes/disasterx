@@ -75,7 +75,7 @@ export function HeroSection() {
       </div>
       <div style={image}>
         <img
-          src="src/assets/Ajuda.jpg"
+          src="https://www.casadaergonomia.com.br/wp-content/uploads/2019/07/young-people-using-smartphones-1024x683.jpg"
           alt="Imagem ilustrativa"
           style={{ width: "100%" }}
         />
