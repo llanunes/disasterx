@@ -23,22 +23,22 @@ const slides = [
   {
     title: "Sua Janela para o Alerta Global.",
     description:
-     "Uma interface intuitiva para enxergar o que está por vir — e agir antes que seja tarde.",
+      "Uma interface intuitiva para enxergar o que está por vir — e agir antes que seja tarde.",
     image:
       "https://floripacentro.com.br/wp-content/uploads/2020/03/bonecos-1.jpg",
   },
 ];
 
- const button = {
-    backgroundColor: "#0A2A82",
-    color: "#fff",
-    padding: "14px 32px",
-    borderRadius: "9999px",
-    fontSize: "16px",
-    fontWeight: "600",
-    textDecoration: "none",
-    fontFamily: "'Work Sans', sans-serif",
-  };
+const button = {
+  backgroundColor: "#0A2A82",
+  color: "#fff",
+  padding: "14px 32px",
+  borderRadius: "9999px",
+  fontSize: "16px",
+  fontWeight: "600",
+  textDecoration: "none",
+  fontFamily: "'Work Sans', sans-serif",
+};
 
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -50,17 +50,18 @@ export function HeroSlider() {
     return () => clearInterval(timer);
   }, []);
 
-   const linkBase = {
-    display: "inline-block",
+  const linkBase = {
+    backgroundColor: "#0A2A82",
+    color: "#fff",
+    padding: "14px 32px",
+    borderRadius: "9999px",
+    fontSize: "16px",
+    fontWeight: "600",
     textDecoration: "none",
-    padding: "6px",
-    color: "#777E90",
-    fontSize: "18px",
     fontFamily: "'Work Sans', sans-serif",
-    borderBottom: "2px solid transparent",
   };
 
-    const getLinkStyle = (path) => ({
+  const getLinkStyle = (path) => ({
     ...linkBase,
     borderBottom:
       location.pathname === path
@@ -109,9 +110,9 @@ export function HeroSlider() {
           >
             {slide.description}
           </p>
-            <Link style={getLinkStyle("/dashboard")} to="/dashboard">
-                        Alertar
-                      </Link>
+          <Link style={getLinkStyle("/dashboard")} to="/dashboard">
+            Alertar
+          </Link>
         </div>
       ))}
 

@@ -33,7 +33,7 @@ export function HeroSection() {
     marginBottom: "30px",
   };
 
-  const button = {
+  const linkBase = {
     backgroundColor: "#0A2A82",
     color: "#fff",
     padding: "14px 32px",
@@ -43,6 +43,14 @@ export function HeroSection() {
     textDecoration: "none",
     fontFamily: "'Work Sans', sans-serif",
   };
+
+  const getLinkStyle = (path) => ({
+    ...linkBase,
+    borderBottom:
+      location.pathname === path
+        ? "2px solid #0A2A82"
+        : "2px solid transparent",
+  });
 
   const image = {
     width: "40%",
@@ -66,12 +74,9 @@ export function HeroSection() {
           resposta. A missão é clara: informar com agilidade, salvar vidas e
           conectar comunidades em risco com soluções e apoio imediato.
         </p>
-        <button
-          onClick={() => (window.location.href = "/dashboard")}
-          style={button}
-        >
+        <Link style={getLinkStyle("/dashboard")} to="/dashboard">
           Alertar
-        </button>
+        </Link>
       </div>
       <div style={image}>
         <img
