@@ -2,6 +2,7 @@ import javascriptIcon from "../assets/js.png";
 import pythonIcon from "../assets/python.png";
 import htmlIcon from "../assets/html.png";
 import cssIcon from "../assets/css-3.png";
+import reactIcon from "../assets/react.svg";
 
 
 export function TechnologiesSection() {
@@ -40,7 +41,7 @@ export function TechnologiesSection() {
   };
 
   const icon = {
-    width: "80px",
+    width: "90px",
     height: "80px",
     display: "flex",
     alignItems: "center",
@@ -67,6 +68,7 @@ const iconImage = {
     { name: "Python", icon: pythonIcon },
     { name: "HTML", icon: htmlIcon },
     { name: "CSS", icon: cssIcon },
+    {name: "React", icon: reactIcon}
   
   ];
 
