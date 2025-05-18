@@ -69,7 +69,6 @@ const iconImage = {
     { name: "HTML", icon: htmlIcon },
     { name: "CSS", icon: cssIcon },
     {name: "React", icon: reactIcon}
-  
   ];
 
   return (

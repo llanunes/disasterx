@@ -90,7 +90,6 @@ const AlertModal = ({
       marginTop: "10px",
       backgroundColor: "#0A2A82",
       color: "white",
-
       border: "none",
       borderRadius: "6px",
       cursor: "pointer",

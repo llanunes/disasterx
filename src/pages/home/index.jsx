@@ -4,6 +4,7 @@ import { TechnologiesSection } from "../../components/tecnologies";
 import { TestimonialsSection } from "../../components/testemonials"
 import { HeroSlider } from "../../components/hero-slider";
 import { VideoPitchSection } from "../../components/video";
+import { TeamPhoto } from "../../components/team";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <TestimonialsSection/>
       <VideoPitchSection/>
       <TechnologiesSection />
+      <TeamPhoto/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 const AlertTable = ({ alerts }) => {
   const styles = {
@@ -13,18 +13,20 @@ const AlertTable = ({ alerts }) => {
       width: "100%",
       borderCollapse: "collapse",
     },
-    thtd: {
+    th: {
       padding: "12px 16px",
       borderBottom: "1px solid #e5e7eb",
       fontSize: "14px",
       textAlign: "left",
+      color: "#0A2A82",
+      fontWeight: "600",
     },
-    mapContainer: {
-      height: "500px",
-      width: "100%",
-      borderRadius: "12px",
-      overflow: "hidden",
-      boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+    td: {
+      padding: "12px 16px",
+      borderBottom: "1px solid #e5e7eb",
+      fontSize: "14px",
+      textAlign: "left",
+      color: "#000",
     },
     pagination: {
       display: "flex",
@@ -46,33 +48,31 @@ const AlertTable = ({ alerts }) => {
     },
   };
 
-  
   return (
     <div style={styles.tableWrapper}>
       <table style={styles.table}>
         <thead>
           <tr>
-            <th style={styles.thtd}>Categoria</th>
-            <th style={styles.thtd}>Localização</th>
-            <th style={styles.thtd}>Data e Hora</th>
-            <th style={styles.thtd}>Mensagem</th>
-            <th style={styles.thtd}>Nível de Severidade</th>
+            <th style={styles.th}>Categoria</th>
+            <th style={styles.th}>Localização</th>
+            <th style={styles.th}>Data e Hora</th>
+            <th style={styles.th}>Mensagem</th>
+            <th style={styles.th}>Nível de Severidade</th>
           </tr>
         </thead>
         <tbody>
           {alerts.map((alert, index) => (
             <tr key={index}>
-              <td style={styles.thtd}>{alert.event}</td>
-              <td style={styles.thtd}>
-                {alert.neighborhood}
+              <td style={styles.td}>{alert.event}</td>
+              <td style={styles.td}>{alert.neighborhood}</td>
+              <td style={styles.td}>{new Date(alert.start * 1000).toLocaleString()}</td>
+              <td style={styles.td}>
+                {alert.description?.length > 80
+                  ? alert.description.slice(0, 100) + "..."
+                  : alert.description}
               </td>
-              <td style={styles.thtd}>
-                {new Date(alert.start * 1000).toLocaleString()}
-              </td>
-              <td style={styles.thtd}>
-                {alert.description?.slice(0, 50)}...
-              </td>
-              <td style={styles.thtd}>{alert.severity}</td>
+
+              <td style={styles.td}>{alert.severity}</td>
             </tr>
           ))}
         </tbody>

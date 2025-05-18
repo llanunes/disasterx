@@ -79,7 +79,7 @@ export default function AlertDashboard() {
       justifyContent: "center",
       gap: "10px",
       marginBottom: "20px",
-      padding: "0px 20px 0px 20px",
+      padding: "8px 20px 8px 20px",
       backgroundColor: "#0A2A82",
       color: "#fff",
       border: "none",
@@ -143,7 +143,7 @@ export default function AlertDashboard() {
         />
 
         <AlertCardCategory
-        city="Lapa"
+        city="Itaquera"
           subtitle="Último registro"
           category="Enchente"
         />
@@ -151,7 +151,7 @@ export default function AlertDashboard() {
        <AlertCardCategory
           city="Local Crítico"
           subtitle="Local com mais registros"
-          category="Lapa"
+          category="Santana"
         />
       </div>
 

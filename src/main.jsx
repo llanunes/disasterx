@@ -5,6 +5,7 @@ import Home from "./pages/home/index.jsx";
 import AlertDashboard from "./pages/dashboard/index.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ContactDashboard from "./components/contact-form.js";
+import './index.css';
 
 const router = createBrowserRouter([
   {
