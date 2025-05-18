@@ -1,8 +1,8 @@
 import member1 from "../assets/renan.jpg";
 import member2 from "../assets/victor.jpg";
 import member3 from "../assets/larissa.jpg";
-import member4 from "../assets/avatar.png";
-import member5 from "../assets/avatar.png";
+import member4 from "../assets/naiara.png";
+import member5 from "../assets/leonardo.png";
 
 export function TeamPhoto() {
   const section = {
