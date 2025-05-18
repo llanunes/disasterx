@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 
 const slides = [
@@ -49,6 +50,24 @@ export function HeroSlider() {
     return () => clearInterval(timer);
   }, []);
 
+   const linkBase = {
+    display: "inline-block",
+    textDecoration: "none",
+    padding: "6px",
+    color: "#777E90",
+    fontSize: "18px",
+    fontFamily: "'Work Sans', sans-serif",
+    borderBottom: "2px solid transparent",
+  };
+
+    const getLinkStyle = (path) => ({
+    ...linkBase,
+    borderBottom:
+      location.pathname === path
+        ? "2px solid #0A2A82"
+        : "2px solid transparent",
+  });
+
   return (
     <div style={{ position: "relative", height: "95vh", overflow: "hidden" }}>
       {slides.map((slide, index) => (
@@ -90,12 +109,9 @@ export function HeroSlider() {
           >
             {slide.description}
           </p>
-            <button
-          onClick={() => (window.location.href = "/dashboard")}
-          style={button}
-        >
-          Alertar
-        </button>
+            <Link style={getLinkStyle("/dashboard")} to="/dashboard">
+                        Alertar
+                      </Link>
         </div>
       ))}
 
