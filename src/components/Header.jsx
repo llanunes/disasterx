@@ -1,4 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../assets/logo.svg"; 
+
 
 export function Header() {
   const location = useLocation();
@@ -39,7 +41,8 @@ export function Header() {
   return (
     <nav style={menu}>
       <div style={logo}>
-        <img src="src/assets/logo.svg" alt="Logo" style={{ height: "80%" }} />
+        <img src={Logo} alt="Logo" style={{ height: "80%" }} />
+
       </div>
       <ul
         style={{
