@@ -66,7 +66,7 @@ export function HeroSection() {
   return (
     <section style={container}>
       <div style={textContainer}>
-        <h1 style={heading}>Disaster X</h1>
+        <h1 style={heading}> Sobre Disaster X</h1>
         <p style={paragraph}>
           Reúne e exibe, em tempo real, informações sobre desastres naturais com
           base em fontes confiáveis. Usuários e organizações também podem

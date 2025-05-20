@@ -102,7 +102,7 @@ export function TestimonialsSection() {
     },
     {
       message:
-        "Eu sempre fico apreensivo com a temporada de chuvas. O mapa que mostra os alertas de alagamento na região de Interlagos foi essencial para evitar sair de casa na hora errada.",
+        "Eu sempre fico apreensivo com a temporada de chuvas. O mapa que mostra os alertas de enchente na região de Interlagos foi essencial para evitar sair de casa na hora errada.",
       name: "Paulo Martins",
       role: "Zona Oeste",
     },
